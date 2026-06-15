@@ -142,3 +142,7 @@ if __name__=="__main__":
     fit(model, train_images, train_labels, epochs=10, batch_size=128)
 
 
+    predictions = model(test_images)
+    predicted_labels = ops.argmax(predictions, axis=1)
+    matches = predicted_labels == test_labels
+    print(f"accuracy: {ops.mean(matches):.2f}")
